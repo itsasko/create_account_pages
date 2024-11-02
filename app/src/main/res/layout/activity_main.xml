@@ -81,55 +81,75 @@
         android:layout_marginStart="250dp"
         android:layout_marginTop="457dp"
         android:text="@string/forget_password"
-        android:textSize="9sp"
         android:textColor="@color/purple"
+        android:textSize="9sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.185" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="300dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="700dp"
+        android:backgroundTint="@color/purple"
         android:text="@string/next"
-        android:textStyle="bold"
         android:textAllCaps="false"
         android:textSize="16sp"
-        android:backgroundTint="@color/purple"
-        />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextData"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInput"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="325dp"
         android:hint="@string/enter_email"
-        android:inputType="text"
+        app:endIconDrawable="@drawable/ic_mail"
+        app:endIconMode="custom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.138">
 
-    <EditText
-        android:id="@+id/editTextData2"
+        <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInput"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="400dp"
         android:hint="@string/enter_password"
         android:inputType="text"
+        app:boxCornerRadiusBottomEnd="@id/passwordInput"
+        app:boxCornerRadiusBottomStart="@id/passwordInput"
+        app:boxCornerRadiusTopEnd="@id/passwordInput"
+        app:boxCornerRadiusTopStart="@id/passwordInput"
+        app:endIconDrawable="@drawable/ic_lock"
+        app:endIconMode="custom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
+        app:layout_constraintVertical_bias="0.134" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
