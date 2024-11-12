@@ -133,7 +133,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/checkboxRememberMe" >
+        app:layout_constraintBottom_toTopOf="@+id/checkboxTermsConditions" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -179,13 +179,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/already_member"
         android:textSize="13sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/labelLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="245dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/log_in"
+        android:backgroundTint="@color/purple"
+        android:textSize="13sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
