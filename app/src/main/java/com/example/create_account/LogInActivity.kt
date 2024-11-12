@@ -25,7 +25,9 @@ class LogInActivity : AppCompatActivity() {
             Log.d("Onboarding", "Pressed register now label")
 
             val goToRegisterIntent = Intent(this@LogInActivity, RegisterActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(goToRegisterIntent)
         }
     }
+
 }
