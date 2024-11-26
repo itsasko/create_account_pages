@@ -13,28 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editFullNameLayout"
         app:srcCompat="@drawable/undraw_adventure_map_hnin_2" />
 
     <TextView
         android:id="@+id/textViewGetStarted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="125dp"
         android:text="@string/get_started"
         android:textSize="36sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageViewGetStarted"
-        app:layout_constraintTop_toTopOf="@+id/imageViewGetStarted"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewGetStarted"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewGetStarted" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewGetStarted" />
 
     <TextView
         android:id="@+id/textViewByCreating"
@@ -44,12 +36,8 @@
         android:layout_marginTop="170dp"
         android:text="@string/create_free"
         android:textSize="14sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageViewGetStarted"
-        app:layout_constraintTop_toTopOf="@+id/imageViewGetStarted"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewGetStarted"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewGetStarted" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewGetStarted" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editFullNameLayout"
@@ -60,17 +48,15 @@
         android:hint="@string/full_name"
         app:endIconDrawable="@drawable/ic_user"
         app:endIconMode="custom"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewGetStarted"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editValidEmailLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGetStarted">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="14dp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -82,17 +68,15 @@
         android:hint="@string/valid_email"
         app:endIconDrawable="@drawable/ic_mail"
         app:endIconMode="custom"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editFullNameLayout"
-        app:layout_constraintBottom_toTopOf="@+id/editPhoneNumberLayout"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/editFullNameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="14dp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -105,17 +89,15 @@
         android:inputType="text"
         app:endIconDrawable="@drawable/ic_phone"
         app:endIconMode="custom"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editStrongPasswordLayout"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editValidEmailLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="14dp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -128,17 +110,15 @@
         android:inputType="text"
         app:endIconDrawable="@drawable/ic_lock"
         app:endIconMode="custom"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPhoneNumberLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/checkboxTermsConditions" >
+        app:layout_constraintTop_toBottomOf="@+id/editPhoneNumberLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="14dp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -149,61 +129,50 @@
         android:layout_marginTop="0dp"
         android:text="@string/terms_conditions"
         android:textSize="9sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editStrongPasswordLayout"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editStrongPasswordLayout" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonNext"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginBottom="57dp"
+        android:backgroundTint="@color/purple"
         android:text="@string/next"
-        android:textStyle="bold"
         android:textAllCaps="false"
         android:textSize="16sp"
-        android:backgroundTint="@color/purple"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkboxTermsConditions"
-        app:layout_constraintBottom_toTopOf="@+id/textViewAlreadyMember"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/textViewAlreadyMember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="5dp"
         android:text="@string/already_member"
         android:textSize="13sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
+
 
     <TextView
-        android:clickable="true"
-        android:focusable="true"
         android:id="@+id/labelLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="245dp"
-        android:layout_marginBottom="30dp"
+        android:textColor="@color/purple"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:focusable="true"
         android:text="@string/log_in"
-        android:backgroundTint="@color/purple"
         android:textSize="13sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewAlreadyMember"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

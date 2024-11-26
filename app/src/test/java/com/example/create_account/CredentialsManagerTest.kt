@@ -1,5 +1,4 @@
 package com.example.create_account
-import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertFalse
 
 
@@ -29,9 +28,10 @@ class CredentialsManagerTest {
     @Test
     fun givenWrongEmailFormat_thenReturnFalse() {
         val credentialsManager = CredentialsManager()
+        val email = "уmail@domain..com"
 
-        val invalidEmail =  "email@domain..com"
-        assertFalse("Failed for email: $invalidEmail", credentialsManager.isEmailValid(invalidEmail))
+        val isEmailValid = credentialsManager.isEmailValid(email)
+        assertFalse(isEmailValid)
     }
 
     @Test
@@ -50,6 +50,26 @@ class CredentialsManagerTest {
 
         val isPasswordValid = credentialsManager.isPasswordValid(password)
         assertTrue(isPasswordValid)
+    }
+
+    @Test
+    fun testValidateCredentials_thenReturnTrue() {
+        val email = "test@te.st"
+        val password = "1234"
+        val credentialsManager = CredentialsManager()
+
+        val isValid = credentialsManager.login(email, password)
+        assertTrue(isValid)
+    }
+
+    @Test
+    fun testValidateCredentials_thenReturnFalse() {
+        val email = "test@te.st"
+        val password = "wrongpassword"
+        val credentialsManager = CredentialsManager()
+
+        val isValid = credentialsManager.login(email, password)
+        assertFalse(isValid)
     }
 }
 
