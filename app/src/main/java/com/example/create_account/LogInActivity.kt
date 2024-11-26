@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +30,13 @@ class LogInActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(goToRegisterIntent)
         }
+        // Display error
+        findViewById<TextInputLayout>(R.id.inputEmailLayout).error = "Oh no"
+        // Disable error
+        findViewById<TextInputLayout>(R.id.inputEmailLayout).isErrorEnabled = false
+
+        findViewById<TextInputEditText>(R.id.inputEmail).text.toString()
+
     }
 
 }
