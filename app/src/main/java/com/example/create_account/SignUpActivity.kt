@@ -91,13 +91,14 @@ class RegisterActivity : AppCompatActivity() {
             phoneInputLayout.error = null
         }
 
-        if (isValid && credentialsManager.register(fullName, email, phone, password)) {
-            navigateToLoginActivity()
+        if (isValid) {
+            if(credentialsManager.register(fullName, email, phone, password)) {
+                navigateToLoginActivity()
+            }
+            else {
+                emailInputLayout.error = "Email is already registered"
+            }
         }
-        else {
-            emailInputLayout.error = "Email is already registered"
-        }
-
     }
 
     private fun navigateToLoginActivity() {
