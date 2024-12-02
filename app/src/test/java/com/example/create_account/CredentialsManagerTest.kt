@@ -71,6 +71,36 @@ class CredentialsManagerTest {
         val isValid = credentialsManager.login(email, password)
         assertFalse(isValid)
     }
+
+    @Test
+    fun testValidateCredentialsWithDifferentCaps_thenReturnTrue() {
+        val email = "TEst@TE.st"
+        val password = "1234"
+        val credentialsManager = CredentialsManager()
+
+        val isValid = credentialsManager.login(email, password)
+        assertTrue(isValid)
+    }
+
+    @Test
+    fun givenProperUnusedCredentials_whenUserRegister_thenSucceed() {
+        val credentialsManager = CredentialsManager()
+        val newEmail = "another@te.st"
+        val newPassword = "1234qwer"
+
+        val isValid = credentialsManager.register("Full name", newEmail, "123456", newPassword)
+        assertTrue(isValid)
+    }
+
+    @Test
+    fun givenProperUsedCredentials_whenUserRegister_thenFailed() {
+        val credentialsManager = CredentialsManager()
+        val newEmail = "TEst@TE.st"
+        val newPassword = "12345"
+
+        val isValid = credentialsManager.register("Full name", newEmail, "123456", newPassword)
+        assertFalse(isValid)
+    }
 }
 
 

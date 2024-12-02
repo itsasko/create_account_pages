@@ -10,18 +10,34 @@ class CredentialsManager {
         return password.isNotEmpty()
     }
 
-    var credential = mutableMapOf<String, String>(
+    fun isNameValid(fullName: String): Boolean {
+        return fullName.isNotEmpty()
+    }
+
+    fun isPhoneValid(phone: String): Boolean {
+        return phone.isNotEmpty() && phone.all { it.isDigit() }
+    }
+
+    var credentials = mutableMapOf<String, String>(
         Pair("test@te.st", "1234"),
         "test2@te.st" to "1234"
     )
 
+
     fun login(email: String, password: String): Boolean {
-        if (credential.contains(email)) {
-            if (credential[email] == password) {
-                return true;
-            }
+        val normalizedEmail = email.lowercase()
+
+        return credentials[normalizedEmail].equals(password)
+    }
+
+    fun register(fullName: String, email: String, phone: String, password: String): Boolean {
+        val normalizedEmail = email.lowercase()
+
+        if (credentials.containsKey(normalizedEmail)) {
+            return false
         }
 
-        return false;
+        credentials[normalizedEmail] = password
+        return true
     }
 }
