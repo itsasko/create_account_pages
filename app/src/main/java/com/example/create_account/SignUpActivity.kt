@@ -1,57 +1,50 @@
 package com.example.create_account
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity(private val credentialsManager: CredentialsManager): Fragment() {
 
-    private val fullNameInputLayout: TextInputLayout
-        get() = findViewById(R.id.editFullNameLayout)
+    private lateinit var fullNameInputLayout: TextInputLayout
+    private lateinit var fullNameEditText: TextInputEditText
+    private lateinit var emailInputLayout: TextInputLayout
+    private lateinit var emailEditText: TextInputEditText
+    private lateinit var phoneInputLayout: TextInputLayout
+    private lateinit var phoneEditText: TextInputEditText
+    private lateinit var passwordInputLayout: TextInputLayout
+    private lateinit var passwordEditText: TextInputEditText
+    private lateinit var nextButtonView: TextView
+    private lateinit var labelLogIn: TextView
 
-    private val fullNameEditText: TextInputEditText
-        get() = findViewById(R.id.inputFullName)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.sign_up, container, false)
 
-    private val emailInputLayout: TextInputLayout
-        get() = findViewById(R.id.editValidEmailLayout)
-
-    private val emailEditText: TextInputEditText
-        get() = findViewById(R.id.inputEmail)
-
-    private val phoneInputLayout: TextInputLayout
-        get() = findViewById(R.id.editPhoneNumberLayout)
-
-    private val phoneEditText: TextInputEditText
-        get() = findViewById(R.id.inputPhoneNumber)
-
-    private val passwordInputLayout: TextInputLayout
-        get() = findViewById(R.id.editStrongPasswordLayout)
-
-    private val passwordEditText: TextInputEditText
-        get() = findViewById(R.id.inputStrongPassword)
-
-    private val nextButtonView: TextView
-        get() = findViewById(R.id.buttonNext)
-
-    private val labelLogIn: TextView
-        get() = findViewById(R.id.labelLogIn)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_up)
+        fullNameInputLayout = view.findViewById(R.id.editFullNameLayout)
+        fullNameEditText = view.findViewById(R.id.inputFullName)
+        emailInputLayout = view.findViewById(R.id.editValidEmailLayout)
+        emailEditText = view.findViewById(R.id.inputEmail)
+        phoneInputLayout = view.findViewById(R.id.editPhoneNumberLayout)
+        phoneEditText = view.findViewById(R.id.inputPhoneNumber)
+        passwordInputLayout = view.findViewById(R.id.editStrongPasswordLayout)
+        passwordEditText = view.findViewById(R.id.inputStrongPassword)
+        nextButtonView = view.findViewById(R.id.buttonNext)
+        labelLogIn = view.findViewById(R.id.labelLogIn)
 
         labelLogIn.setOnClickListener {
-            Log.d("Onboarding", "Pressed register now label")
-
-            val goToRegisterIntent = Intent(this@RegisterActivity, LogInActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-            startActivity(goToRegisterIntent)
+            navigateToLoginActivity()
         }
 
         nextButtonView.setOnClickListener { validateInput() }
+
+        return view
     }
 
     private fun validateInput() {
@@ -59,7 +52,6 @@ class RegisterActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString().trim()
         val phone = phoneEditText.text.toString().trim()
         val fullName = fullNameEditText.text.toString().trim()
-        val credentialsManager = CredentialsManager()
 
         var isValid = true
 
@@ -102,8 +94,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun navigateToLoginActivity() {
-        val goToRegisterIntent = Intent(this@RegisterActivity, LogInActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-        startActivity(goToRegisterIntent)
+        (activity as? AccountActivity)?.navigateToFragment(LogInActivity(credentialsManager))
     }
 }
