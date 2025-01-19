@@ -1,4 +1,5 @@
 package com.example.create_account
+
 import android.os.Bundle
 import android.widget.TextView
 import android.view.LayoutInflater
@@ -8,7 +9,10 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class RegisterActivity(private val credentialsManager: CredentialsManager): Fragment() {
+class RegisterFragment : Fragment() {
+    private val credentialsManager: CredentialsManager
+        get() = (requireContext().applicationContext as MyApplication).credentialsManager
+
 
     private lateinit var fullNameInputLayout: TextInputLayout
     private lateinit var fullNameEditText: TextInputEditText
@@ -21,17 +25,18 @@ class RegisterActivity(private val credentialsManager: CredentialsManager): Frag
     private lateinit var nextButtonView: TextView
     private lateinit var labelLogIn: TextView
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.sign_up, container, false)
+        val view = inflater.inflate(R.layout.fragment_signup, container, false)
 
-        fullNameInputLayout = view.findViewById(R.id.editFullNameLayout)
+        fullNameInputLayout = view.findViewById(R.id.inputFullNameLayout)
         fullNameEditText = view.findViewById(R.id.inputFullName)
         emailInputLayout = view.findViewById(R.id.editValidEmailLayout)
         emailEditText = view.findViewById(R.id.inputEmail)
-        phoneInputLayout = view.findViewById(R.id.editPhoneNumberLayout)
+        phoneInputLayout = view.findViewById(R.id.inputPhoneLayout)
         phoneEditText = view.findViewById(R.id.inputPhoneNumber)
         passwordInputLayout = view.findViewById(R.id.editStrongPasswordLayout)
         passwordEditText = view.findViewById(R.id.inputStrongPassword)
@@ -84,16 +89,15 @@ class RegisterActivity(private val credentialsManager: CredentialsManager): Frag
         }
 
         if (isValid) {
-            if(credentialsManager.register(fullName, email, phone, password)) {
+            if (credentialsManager.register(fullName, email, phone, password)) {
                 navigateToLoginActivity()
-            }
-            else {
+            } else {
                 emailInputLayout.error = "Email is already registered"
             }
         }
     }
 
     private fun navigateToLoginActivity() {
-        (activity as? AccountActivity)?.navigateToFragment(LogInActivity(credentialsManager))
+        (activity as? AccountActivity)?.navigateToFragment(LogInFragment())
     }
 }

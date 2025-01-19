@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogInActivity">
+    tools:context=".LogInFragment">
 
     <ImageView
         android:id="@+id/imageViewGetStarted"
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/get_started"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/undraw_adventure_map_hnin_2" />
@@ -40,7 +41,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewGetStarted" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editFullNameLayout"
+        android:id="@+id/inputFullNameLayout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -56,8 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
-            android:padding="14dp"
-            />
+            android:padding="14dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,19 +70,18 @@
         app:endIconDrawable="@drawable/ic_mail"
         app:endIconMode="custom"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editFullNameLayout">
+        app:layout_constraintTop_toBottomOf="@+id/inputFullNameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
-            android:padding="14dp"
-            />
+            android:padding="14dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editPhoneNumberLayout"
+        android:id="@+id/inputPhoneLayout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -99,8 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
-            android:padding="14dp"
-            />
+            android:padding="14dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -114,15 +112,14 @@
         app:endIconDrawable="@drawable/ic_lock"
         app:endIconMode="custom"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPhoneNumberLayout">
+        app:layout_constraintTop_toBottomOf="@+id/inputPhoneLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputStrongPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
-            android:padding="14dp"
-            />
+            android:padding="14dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -166,14 +163,14 @@
 
     <TextView
         android:id="@+id/labelLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purple"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/log_in"
+        android:textColor="@color/dark_purple"
         android:textSize="13sp"
         app:layout_constraintStart_toEndOf="@+id/textViewAlreadyMember"
         app:layout_constraintTop_toBottomOf="@+id/buttonNext" />

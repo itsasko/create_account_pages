@@ -10,7 +10,11 @@ import android.view.LayoutInflater
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class LogInActivity(private val credentialsManager: CredentialsManager) : Fragment() {
+
+
+class LogInFragment : Fragment() {
+    private val credentialsManager: CredentialsManager
+        get() = (requireContext().applicationContext as MyApplication).credentialsManager
 
     private lateinit var emailInputLayout: TextInputLayout
     private lateinit var emailEditText: TextInputEditText
@@ -24,7 +28,7 @@ class LogInActivity(private val credentialsManager: CredentialsManager) : Fragme
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.log_in, container, false)
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         emailInputLayout = view.findViewById(R.id.inputEmailLayout)
         emailEditText = view.findViewById(R.id.inputEmail)
@@ -33,9 +37,8 @@ class LogInActivity(private val credentialsManager: CredentialsManager) : Fragme
         nextButtonView = view.findViewById(R.id.buttonNext)
         labelRegisterNow = view.findViewById(R.id.labelRegisterNow)
 
-
         labelRegisterNow.setOnClickListener {
-            (activity as? AccountActivity)?.navigateToFragment(RegisterActivity(credentialsManager))
+            (activity as? AccountActivity)?.navigateToFragment(RegisterFragment())
         }
 
         nextButtonView.setOnClickListener { validateInput() }
@@ -64,6 +67,8 @@ class LogInActivity(private val credentialsManager: CredentialsManager) : Fragme
         }
 
         if (isValid && credentialsManager.login(email, password)) {
+            credentialsManager.login()
+
             navigateToMainActivity()
         }
     }

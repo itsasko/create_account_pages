@@ -1,6 +1,13 @@
 package com.example.create_account
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+
 
 class CredentialsManager {
+    private val _isLoggedIn = MutableStateFlow(true)
+    val isLoggedIn: StateFlow<Boolean>
+        get() = _isLoggedIn
+
     fun isEmailValid(email: String): Boolean {
         val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$".toRegex()
         return email.matches(emailRegex)
@@ -18,7 +25,7 @@ class CredentialsManager {
         return phone.isNotEmpty() && phone.all { it.isDigit() }
     }
 
-    var credentials = mutableMapOf<String, String>(
+    private var credentials = mutableMapOf(
         Pair("test@te.st", "1234"),
         "test2@te.st" to "1234"
     )
@@ -39,5 +46,13 @@ class CredentialsManager {
 
         credentials[normalizedEmail] = password
         return true
+    }
+
+    fun logout() {
+        _isLoggedIn.value = false
+    }
+
+    fun login() {
+        _isLoggedIn.value = true
     }
 }

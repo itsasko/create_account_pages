@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogInActivity">
+    tools:context=".LogInFragment">
 
     <ImageView
         android:id="@+id/imageViewWelcomeBack"
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="42dp"
+        android:contentDescription="@string/welcome_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,13 +52,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewWelcomeBack">
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
-            android:padding="14dp"
-            />
+            android:padding="14dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -79,7 +80,7 @@
             android:layout_height="match_parent"
             android:inputType="text"
             android:padding="14dp"
-            />
+            android:textColor="#2C2B2E" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -89,7 +90,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="0dp"
         android:text="@string/remember"
-        android:textSize="9sp"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPasswordLayout" />
 
@@ -100,8 +101,8 @@
         android:layout_marginStart="250dp"
         android:layout_marginTop="15dp"
         android:text="@string/forget_password"
-        android:textColor="@color/purple"
-        android:textSize="9sp"
+        android:textColor="@color/dark_purple"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPasswordLayout" />
 
@@ -129,29 +130,21 @@
         android:layout_marginTop="5dp"
         android:text="@string/new_member"
         android:textSize="13sp"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNext"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
 
     <TextView
         android:id="@+id/labelRegisterNow"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/register_now"
-        android:textColor="@color/purple"
+        android:textColor="@color/dark_purple"
         android:textSize="13sp"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNext"
         app:layout_constraintStart_toEndOf="@+id/textViewNewMember"
-    />
-
-
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

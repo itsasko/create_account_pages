@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 
 
 class AccountActivity : AppCompatActivity() {
-    private val credentialsManager = CredentialsManager()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +18,7 @@ class AccountActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, LogInActivity(credentialsManager))
+                .replace(R.id.fragment_container, LogInFragment())
                 .addToBackStack(null)
                 .commit()
         }
