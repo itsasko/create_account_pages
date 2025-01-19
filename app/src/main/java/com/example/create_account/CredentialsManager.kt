@@ -18,7 +18,7 @@ class CredentialsManager {
         return phone.isNotEmpty() && phone.all { it.isDigit() }
     }
 
-    var credentials = mutableMapOf<String, String>(
+    private var credentials = mutableMapOf(
         Pair("test@te.st", "1234"),
         "test2@te.st" to "1234"
     )

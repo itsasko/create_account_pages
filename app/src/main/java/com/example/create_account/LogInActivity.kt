@@ -10,14 +10,28 @@ import android.view.LayoutInflater
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class LogInActivity(private val credentialsManager: CredentialsManager) : Fragment() {
 
-    private lateinit var emailInputLayout: TextInputLayout
-    private lateinit var emailEditText: TextInputEditText
-    private lateinit var passwordInputLayout: TextInputLayout
-    private lateinit var passwordEditText: TextInputEditText
-    private lateinit var nextButtonView: TextView
-    private lateinit var labelRegisterNow: TextView
+class LogInActivity : Fragment() {
+    private val credentialsManager: CredentialsManager
+        get() = (requireContext().applicationContext as MyApplication).credentialsManager
+
+    private val emailInputLayout: TextInputLayout
+        get() = requireView().findViewById(R.id.inputEmailLayout)
+
+    private val emailEditText: TextInputEditText
+        get() = requireView().findViewById(R.id.inputEmail)
+
+    private val passwordInputLayout: TextInputLayout
+        get() = requireView().findViewById(R.id.inputPasswordLayout)
+
+    private val passwordEditText: TextInputEditText
+        get() = requireView().findViewById(R.id.inputPassword)
+
+    private val nextButtonView: TextView
+        get() = requireView().findViewById(R.id.buttonNext)
+
+    private val labelRegisterNow: TextView
+        get() = requireView().findViewById(R.id.labelRegisterNow)
 
 
     override fun onCreateView(
@@ -26,16 +40,9 @@ class LogInActivity(private val credentialsManager: CredentialsManager) : Fragme
     ): View? {
         val view = inflater.inflate(R.layout.log_in, container, false)
 
-        emailInputLayout = view.findViewById(R.id.inputEmailLayout)
-        emailEditText = view.findViewById(R.id.inputEmail)
-        passwordInputLayout = view.findViewById(R.id.inputPasswordLayout)
-        passwordEditText = view.findViewById(R.id.inputPassword)
-        nextButtonView = view.findViewById(R.id.buttonNext)
-        labelRegisterNow = view.findViewById(R.id.labelRegisterNow)
-
 
         labelRegisterNow.setOnClickListener {
-            (activity as? AccountActivity)?.navigateToFragment(RegisterActivity(credentialsManager))
+            (activity as? AccountActivity)?.navigateToFragment(RegisterActivity())
         }
 
         nextButtonView.setOnClickListener { validateInput() }

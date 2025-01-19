@@ -18,4 +18,12 @@
     <string name="already_member">Already a member?</string>
     <string name="log_in">Log in</string>
     <string name="next">Next ></string>
+    <string name="recipe_img">Recipe image</string>
+    <string name="like_img">Like image</string>
+    <string name="share_img">Share image</string>
+    <string name="logout">Logout</string>
+    <string name="fragment_a">Fragment A</string>
+    <string name="fragment_b">Fragment B</string>
+    <string name="toggle_fragment">Toggle fragment</string>
+
 </resources>
