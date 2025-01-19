@@ -13,35 +13,17 @@ class RegisterActivity : Fragment() {
     private val credentialsManager: CredentialsManager
         get() = (requireContext().applicationContext as MyApplication).credentialsManager
 
-    private val fullNameInputLayout: TextInputLayout
-        get() = requireView().findViewById(R.id.inputFullNameLayout)
 
-    private val fullNameEditText: TextInputEditText
-        get() = requireView().findViewById(R.id.inputFullName)
-
-    private val emailInputLayout: TextInputLayout
-        get() = requireView().findViewById(R.id.inputEmailLayout)
-
-    private val emailEditText: TextInputEditText
-        get() = requireView().findViewById(R.id.inputEmail)
-
-    private val phoneInputLayout: TextInputLayout
-        get() = requireView().findViewById(R.id.inputPhoneLayout)
-
-    private val phoneEditText: TextInputEditText
-        get() = requireView().findViewById(R.id.inputPhoneNumber)
-
-    private val passwordInputLayout: TextInputLayout
-        get() = requireView().findViewById(R.id.inputPasswordLayout)
-
-    private val passwordEditText: TextInputEditText
-        get() = requireView().findViewById(R.id.inputPassword)
-
-    private val nextButtonView: TextView
-        get() = requireView().findViewById(R.id.buttonNext)
-
-    private val labelLogIn: TextView
-        get() = requireView().findViewById(R.id.labelLogIn)
+    private lateinit var fullNameInputLayout: TextInputLayout
+    private lateinit var fullNameEditText: TextInputEditText
+    private lateinit var emailInputLayout: TextInputLayout
+    private lateinit var emailEditText: TextInputEditText
+    private lateinit var phoneInputLayout: TextInputLayout
+    private lateinit var phoneEditText: TextInputEditText
+    private lateinit var passwordInputLayout: TextInputLayout
+    private lateinit var passwordEditText: TextInputEditText
+    private lateinit var nextButtonView: TextView
+    private lateinit var labelLogIn: TextView
 
 
     override fun onCreateView(
@@ -49,6 +31,17 @@ class RegisterActivity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.sign_up, container, false)
+
+        fullNameInputLayout = view.findViewById(R.id.inputFullNameLayout)
+        fullNameEditText = view.findViewById(R.id.inputFullName)
+        emailInputLayout = view.findViewById(R.id.editValidEmailLayout)
+        emailEditText = view.findViewById(R.id.inputEmail)
+        phoneInputLayout = view.findViewById(R.id.inputPhoneLayout)
+        phoneEditText = view.findViewById(R.id.inputPhoneNumber)
+        passwordInputLayout = view.findViewById(R.id.editStrongPasswordLayout)
+        passwordEditText = view.findViewById(R.id.inputStrongPassword)
+        nextButtonView = view.findViewById(R.id.buttonNext)
+        labelLogIn = view.findViewById(R.id.labelLogIn)
 
         labelLogIn.setOnClickListener {
             navigateToLoginActivity()
