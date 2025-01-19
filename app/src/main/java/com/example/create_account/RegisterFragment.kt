@@ -98,6 +98,6 @@ class RegisterActivity : Fragment() {
     }
 
     private fun navigateToLoginActivity() {
-        (activity as? AccountActivity)?.navigateToFragment(LogInActivity())
+        (activity as? AccountActivity)?.navigateToFragment(LogInFragment())
     }
 }
