@@ -27,7 +27,7 @@ class RecipeAdapter(
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipes[position]
-        holder.bind(recipe)
+        holder.updateUI(recipe)
     }
 
     override fun getItemCount(): Int = recipes.size
@@ -46,7 +46,7 @@ class RecipeAdapter(
         private val imageLike: ImageView = itemView.findViewById(R.id.imageLike)
         private val imageShare: ImageView = itemView.findViewById(R.id.imageShare)
 
-        fun bind(recipe: Recipe) {
+        fun updateUI(recipe: Recipe) {
             textRecipeName.text = recipe.title ?: "Untitled"
             imageRecipe.setImageResource(recipe.imageResId)
 

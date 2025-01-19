@@ -11,7 +11,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 
-class LogInActivity : Fragment() {
+
+class LogInFragment : Fragment() {
     private val credentialsManager: CredentialsManager
         get() = (requireContext().applicationContext as MyApplication).credentialsManager
 
@@ -27,7 +28,7 @@ class LogInActivity : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.log_in, container, false)
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         emailInputLayout = view.findViewById(R.id.inputEmailLayout)
         emailEditText = view.findViewById(R.id.inputEmail)
@@ -37,7 +38,7 @@ class LogInActivity : Fragment() {
         labelRegisterNow = view.findViewById(R.id.labelRegisterNow)
 
         labelRegisterNow.setOnClickListener {
-            (activity as? AccountActivity)?.navigateToFragment(RegisterActivity())
+            (activity as? AccountActivity)?.navigateToFragment(RegisterFragment())
         }
 
         nextButtonView.setOnClickListener { validateInput() }
@@ -66,6 +67,8 @@ class LogInActivity : Fragment() {
         }
 
         if (isValid && credentialsManager.login(email, password)) {
+            credentialsManager.login()
+
             navigateToMainActivity()
         }
     }

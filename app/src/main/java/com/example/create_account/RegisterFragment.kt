@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class RegisterActivity : Fragment() {
+class RegisterFragment : Fragment() {
     private val credentialsManager: CredentialsManager
         get() = (requireContext().applicationContext as MyApplication).credentialsManager
 
@@ -30,7 +30,7 @@ class RegisterActivity : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.sign_up, container, false)
+        val view = inflater.inflate(R.layout.fragment_signup, container, false)
 
         fullNameInputLayout = view.findViewById(R.id.inputFullNameLayout)
         fullNameEditText = view.findViewById(R.id.inputFullName)

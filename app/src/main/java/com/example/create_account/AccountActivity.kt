@@ -18,7 +18,7 @@ class AccountActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, LogInActivity())
+                .replace(R.id.fragment_container, LogInFragment())
                 .addToBackStack(null)
                 .commit()
         }
